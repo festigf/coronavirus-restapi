@@ -20,18 +20,3 @@ async function run() {
 }
 
 run().catch(console.dir);
-
-async function createListing(client, newListing){
-  const result = await client.db("sample_airbnb").collection("listingsAndReviews").insertOne(newListing);
-  console.log(`New listing created with the following id: ${result.insertedId}`);
-}
-
-
-await createListing(client,
-  {
-      name: "Lovely Loft",
-      summary: "A charming loft in Paris",
-      bedrooms: 1,
-      bathrooms: 1
-  }
-);
